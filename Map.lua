@@ -149,24 +149,7 @@ function Map:callback(cb, ...)
     if cb == "draw" then self:_updateTileRange() end
     for i = 1, #self.layerOrder do
         layer = self.layerOrder[i]
-        
-        --love.graphics.print(layer[cb], 0, 0)
-        
-        
-        if layer[cb]~=nil then
-			--love.graphics.print(layer[cb], 0, 0)
-			--love.graphics.print(layer, 0, 0)
-			if layer[cb] then layer(layer[cb], ...) end
-        end
-        
-        --love.graphics.print('hola :) ', 200,0)
-        --suma = i * 25
-        --love.graphics.print(i, suma, 0)
-        --love.graphics.print(cb, 0, 0) --draw
-        --love.graphics.print(layer['draw'], 0, 0)
-        
-        
-        --love.graphics.print(layer['draw'], 0, 0)
+        if layer[cb] then layer[cb](layer, ...) end
     end
 end
 
