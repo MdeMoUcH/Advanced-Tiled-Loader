@@ -121,7 +121,12 @@ function TileLayer:draw()
         -- Bind the sprite batches
         if useSpriteBatch then 
             for k, batch in pairs(self._batches) do
-                batch:bind()
+				if batch~=nil then
+				
+				else
+					batch:bind()
+				end
+                --batch:bind()
             end
         end
     
@@ -157,7 +162,15 @@ function TileLayer:draw()
                     if not self._batches[tile.tileset] then 
                         self._batches[tile.tileset] = love.graphics.newSpriteBatch(
                                                         tile.tileset.image, map.width * map.height)
-                        self._batches[tile.tileset]:bind()
+                                                                                        
+                        
+                        
+                        if tile.tileset~=nil then
+							love.graphics.print(tile.tileset, 0, 0)
+							--self._batches[tile.tileset]:bind()
+						end
+						
+                        --self._batches[tile.tileset]:bind()
                     end
                     -- Add the quad to the spritebatch
                     self._batches[tile.tileset]:add(tile.quad, drawX + halfW, 
@@ -277,7 +290,12 @@ function TileLayer:draw()
         -- Unbind the sprite batches
          if useSpriteBatch then 
             for k, batch in pairs(self._batches) do
-                batch:unbind()
+				if batch~=nil then
+				
+				else
+					batch:unbind()
+				end
+                --batch:unbind()
             end
         end
         
